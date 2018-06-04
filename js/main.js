@@ -9,7 +9,7 @@ class Observer {
   }
 
   unsubscribe(callback) {
-    this._observers = this._observers.filter( (observer) => observer !== callback );
+    this._observers = this._observers.filter((observer) => observer !== callback);
     // let indexOfObserver = this._observers.indexOf(callback);
     // if(indexOfObserver) {
     //   this._observers.splice(indexOfObserver, 1);
@@ -27,7 +27,7 @@ class Observer {
       if(observer.flag) {
         this.unsubscribe(observer);
       }
-    })
+    });
   }
 
   broadcastRandom(data) {
@@ -39,7 +39,7 @@ class Observer {
           this.unsubscribe(observer);
         }
       }
-    })
+    });
   }
 
 }
@@ -84,18 +84,10 @@ observer.subscribe(user3.showNews);
 observer.subscribe(user4.showNews);
 
 
+observer.broadcast(news.generateNews());
+
 observer.broadcastRandom(news.generateNews());
-
-observer.broadcast(news.generateNews());
-
-observer.unsubscribe(user3.showNews);
-
-observer.broadcast(news.generateNews());
 
 observer.unsubscribe(user4.showNews);
 
 observer.broadcast(news.generateNews());
-
-
-
-
